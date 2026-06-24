@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Line - Health Assistance App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">🧬 Life Line</div>
+        <div class="nav-links">
+            <button onclick="showPage('checkup')">Symptom & Vitals Checker</button>
+            <button onclick="showPage('history'); loadHistory();">Health History Log</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section id="checkup-page" class="page active">
+            <h2>Vitals Risk Assessment Engine</h2>
+            <p>Input current metrics below to run a real-time risk assessment configuration query.</p>
+            
+            <form id="vitalsForm">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="userName" required placeholder="Jane Doe">
+                </div>
+                <div class="form-group">
+                    <label>Age</label>
+                    <input type="number" id="age" required placeholder="45">
+                </div>
+                <div class="form-group">
+                    <label>Systolic Blood Pressure (mmHg)</label>
+                    <input type="number" id="bp" required placeholder="120">
+                </div>
+                <div class="form-group">
+                    <label>Serum Cholesterol (mg/dL)</label>
+                    <input type="number" id="cholesterol" required placeholder="190">
+                </div>
+                <div class="form-group">
+                    <label>Resting Heart Rate (bpm)</label>
+                    <input type="number" id="heartRate" required placeholder="72">
+                </div>
+                <button type="submit" class="btn">Analyze Metrics</button>
+            </form>
+
+            <div id="resultBox" class="result-box hidden">
+                <h3>Assessment Output:</h3>
+                <p id="resultText"></p>
+            </div>
+        </section>
+
+        <section id="history-page" class="page">
+            <h2>Recent System Health Logs</h2>
+            <p>Displaying the latest diagnostic outputs captured sequentially inside your database.</p>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Patient Name</th>
+                        <th>Age</th>
+                        <th>BP (mmHg)</th>
+                        <th>Cholesterol</th>
+                        <th>Heart Rate</th>
+                        <th>Risk Assessment</th>
+                    </tr>
+                </thead>
+                <tbody id="historyTableBody">
+                    </tbody>
+            </table>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
